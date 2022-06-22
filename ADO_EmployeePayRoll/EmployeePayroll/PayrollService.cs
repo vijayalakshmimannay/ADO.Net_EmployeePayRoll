@@ -3,6 +3,7 @@
 using DocumentFormat.OpenXml.Drawing.Diagrams;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -65,7 +66,62 @@ namespace EmployeePayroll
             }
             connect.Close();
         }
-
+        /*public bool AddEmployee(ModelClass model)
+        {
+            SqlConnection connect = new SqlConnection(dbpath);
+            try
+            {
+                using (this.connect)
+                {
+                    SqlCommand cmd = new SqlCommand("Sp_Employee_Payroll", this.connect);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@NAME", model.NAME);
+                    cmd.Parameters.AddWithValue("@SALARY", model.SALARY);
+                    cmd.Parameters.AddWithValue("@START", model.START);
+                    
+                    this.connect.Open();
+                    var result = cmd.ExecuteNonQuery();
+                    this.connect.Close();
+                    if(result != 0)
+                    {
+                        return true;
+                    }
+                    return false;
+                   
+                }
+            } 
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                this.connect.Close();
+            }
+        }*/
+        public void UpdateEmployee()
+        {
+            SqlConnection connect = new SqlConnection(dbpath);
+            try
+            {
+                using (connect)
+                {
+                    Console.WriteLine("Enter name of employee to update basic pay:");
+                    string name = Console.ReadLine();
+                    Console.WriteLine("Enter basic pay to uodate:");
+                    decimal salary = Convert.ToDecimal(Console.ReadLine());
+                    connect.Open();
+                    string query = "update employee_payroll set salary =" + salary + "where name='" + name + "'";
+                    SqlCommand command = new SqlCommand(query, connect);
+                    command.ExecuteNonQuery();
+                    Console.WriteLine("Records updated successfully.");
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("\nError:Records are not updated.\n");
+            }
+        }
     }
 
 }
