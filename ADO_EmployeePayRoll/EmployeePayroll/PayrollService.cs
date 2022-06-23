@@ -34,6 +34,7 @@ namespace EmployeePayroll
         }
         public void GetAllEmployee()
         {
+            SqlConnection connect = new SqlConnection(dbpath);
             ModelClass model = new ModelClass();
             using (connect)
             {
@@ -122,6 +123,33 @@ namespace EmployeePayroll
                 Console.WriteLine("\nError:Records are not updated.\n");
             }
         }
-    }
+        public bool CreateEmployee()
+        {
+            SqlConnection connect = new SqlConnection(dbpath);
 
+            using (connect)
+            {
+                SqlCommand cmd = new SqlCommand("Sp_Employee_Payroll", connect);
+                ModelClass model = new ModelClass();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@NAME", model.NAME);
+                cmd.Parameters.AddWithValue("@SALARY", model.SALARY);
+                cmd.Parameters.AddWithValue("@START", model.START);
+
+                connect.Open();
+                var result = cmd.ExecuteNonQuery();
+                this.connect.Close();
+                if (result != 0)
+                {
+                    return true;
+                }
+                return false;
+
+            }
+
+        }
+
+
+        
+    }
 }

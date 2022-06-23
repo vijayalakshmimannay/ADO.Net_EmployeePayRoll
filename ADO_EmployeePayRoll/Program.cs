@@ -22,6 +22,7 @@ namespace EmployeePayroll
             Model.START = Convert.ToDateTime(Console.ReadLine());*/
             value.UpdateEmployee();
             value.GetAllEmployee();
+            value.CreateEmployee();
         }
     }
 }
