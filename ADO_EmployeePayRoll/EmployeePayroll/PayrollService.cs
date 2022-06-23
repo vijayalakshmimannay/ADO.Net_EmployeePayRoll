@@ -149,7 +149,21 @@ namespace EmployeePayroll
 
         }
 
+        public void DeleteEmployee()
+        {
+            SqlConnection connect = new SqlConnection(dbpath);
+            using (connect)
+            {
+                connect.Open();
+                Console.WriteLine("Enter name of employee to  delete from details:");
+                string name = Console.ReadLine();
+                string query = "delete from Employee_Payroll where NAME='" + name + "'";
+                SqlCommand command = new SqlCommand(query, connect);
+                command.ExecuteNonQuery();
+                connect.Close();
+            }
 
-        
+        }
+
     }
 }

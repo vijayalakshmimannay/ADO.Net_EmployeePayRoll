@@ -20,9 +20,10 @@ namespace EmployeePayroll
             Model.SALARY = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Enter a Year,Month,Date");
             Model.START = Convert.ToDateTime(Console.ReadLine());*/
-            value.UpdateEmployee();
+            //value.UpdateEmployee();
             value.GetAllEmployee();
-            value.CreateEmployee();
+           // value.CreateEmployee();
+            value.DeleteEmployee();
         }
     }
 }
