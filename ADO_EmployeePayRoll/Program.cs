@@ -11,8 +11,7 @@ namespace EmployeePayroll
         {
             EmployeePayroll.PayrollService value = new EmployeePayroll.PayrollService();
             ModelClass Model = new ModelClass();
-            //value.DatabseConnection();
-            //value.GetAllEmployee();
+           
 
             /*Console.WriteLine("Enter Name");
             Model.NAME = Console.ReadLine();
