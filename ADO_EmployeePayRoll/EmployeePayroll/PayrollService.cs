@@ -67,39 +67,7 @@ namespace EmployeePayroll
             }
             connect.Close();
         }
-        /*public bool AddEmployee(ModelClass model)
-        {
-            SqlConnection connect = new SqlConnection(dbpath);
-            try
-            {
-                using (this.connect)
-                {
-                    SqlCommand cmd = new SqlCommand("Sp_Employee_Payroll", this.connect);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@NAME", model.NAME);
-                    cmd.Parameters.AddWithValue("@SALARY", model.SALARY);
-                    cmd.Parameters.AddWithValue("@START", model.START);
-                    
-                    this.connect.Open();
-                    var result = cmd.ExecuteNonQuery();
-                    this.connect.Close();
-                    if(result != 0)
-                    {
-                        return true;
-                    }
-                    return false;
-                   
-                }
-            } 
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                this.connect.Close();
-            }
-        }*/
+       
         public void UpdateEmployee()
         {
             SqlConnection connect = new SqlConnection(dbpath);
