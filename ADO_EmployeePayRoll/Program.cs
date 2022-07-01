@@ -1,9 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
 
 //EmployeePayroll.PayrollService payrollSystem = new EmployeePayroll.PayrollService();
 //payrollSystem.DatabaseConnection();
-using System;
-namespace EmployeePayroll
+//using System;
+/*namespace EmployeePayroll
 {
     class program
     {
@@ -20,10 +20,12 @@ namespace EmployeePayroll
             Model.SALARY = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Enter a Year,Month,Date");
             Model.START = Convert.ToDateTime(Console.ReadLine());*/
-            //value.UpdateEmployee();
-            value.GetAllEmployee();
-           // value.CreateEmployee();
-            value.DeleteEmployee();
-        }
-    }
-}
+//value.UpdateEmployee();
+//value.GetAllEmployee();
+// value.CreateEmployee();
+// value.DeleteEmployee();
+// }
+// }
+//}
+
+Console.WriteLine("Employee Payroll DB with Multithreading");

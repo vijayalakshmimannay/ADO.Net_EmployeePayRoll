@@ -5,6 +5,10 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADO_EmployeePayRoll", "ADO_EmployeePayRoll.csproj", "{7374F3BF-0EDB-4041-AA1C-34188ECDCB18}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiThreadingTest", "..\MultiThreadingTest\MultiThreadingTest.csproj", "{AA0BF74F-BFB0-4562-AC6B-4D27517B27D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestSharpTestCase", "..\RestSharpTestCase\RestSharpTestCase.csproj", "{D67D2834-9783-4095-8AD3-05DA51BB2F69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{7374F3BF-0EDB-4041-AA1C-34188ECDCB18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7374F3BF-0EDB-4041-AA1C-34188ECDCB18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7374F3BF-0EDB-4041-AA1C-34188ECDCB18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA0BF74F-BFB0-4562-AC6B-4D27517B27D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA0BF74F-BFB0-4562-AC6B-4D27517B27D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA0BF74F-BFB0-4562-AC6B-4D27517B27D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA0BF74F-BFB0-4562-AC6B-4D27517B27D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D67D2834-9783-4095-8AD3-05DA51BB2F69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D67D2834-9783-4095-8AD3-05DA51BB2F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D67D2834-9783-4095-8AD3-05DA51BB2F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D67D2834-9783-4095-8AD3-05DA51BB2F69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
