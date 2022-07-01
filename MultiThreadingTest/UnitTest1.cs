@@ -23,4 +23,5 @@ namespace MultiThreadingTest
             Console.WriteLine("Time required to add multiple employees without using Thread: " + (endTime - START));
         }
     }
+
 }

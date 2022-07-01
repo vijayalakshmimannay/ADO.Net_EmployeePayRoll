@@ -33,5 +33,23 @@ namespace RestSharpTestCase
                 Console.WriteLine("Id:" + value.ID + ",\t " + value.NAME + ",\t " + value.SALARY);
             }
         }
+        [TestMethod]
+        public void OnPostingEmployeeData_AddtoJsonServer_ReturnRecentlyAddedData()
+        {
+            client = new RestClient("http://localhost:4000");
+            //Arrange
+            RestRequest request = new RestRequest("/Employee", Method.Post);
+            var body = new Employee { NAME = "Sita", SALARY = "30000" };
+            request.AddParameter("application/json", body, ParameterType.RequestBody);
+            //Act
+            RestResponse response = client.Execute(request);
+            //Assert
+            Assert.AreEqual(response.StatusCode, HttpStatusCode.Created);
+            Employee value = JsonConvert.DeserializeObject<Employee>(response.Content);
+            Assert.AreEqual("Sita", value.NAME);
+            Assert.AreEqual("30000", value.SALARY);
+            Console.WriteLine(response.Content);
+        }
     }
 }
+
