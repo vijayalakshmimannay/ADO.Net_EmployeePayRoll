@@ -16,7 +16,7 @@ namespace RestSharpTestCase
     {
         RestClient client;
 
-        /*[TestMethod]
+        [TestMethod]
         public void OnCallingGetMethod_CompareCount_ShouldReturnEmployeeList()
         {
             client = new RestClient("http://localhost:4000");
@@ -49,8 +49,8 @@ namespace RestSharpTestCase
             Assert.AreEqual("Sita", value.NAME);
             Assert.AreEqual("30000", value.SALARY);
             Console.WriteLine(response.Content);
-        }*/
-        /*[TestMethod]
+        }
+        [TestMethod]
         public void OnPostingMultipleEmployees_AddToJsonServer_ReturnListOfAddedData()
         {
             client = new RestClient("http://localhost:4000");
@@ -72,7 +72,7 @@ namespace RestSharpTestCase
                 Assert.AreEqual(body.SALARY, value.SALARY);
                 Console.WriteLine(response.Content);
             });
-        }*/
+        }
         [TestMethod]
         public void OnUpdatingEmployeeData_ShouldUpdateValueInJsonServer()
         {
@@ -91,7 +91,21 @@ namespace RestSharpTestCase
             Assert.AreEqual("50000", value.SALARY);
             Console.WriteLine(response.Content);
         }
+        [TestMethod]
+        public void OnDeletingEmployeeData_ShouldDeleteDataInJsonServer()
+        {
+            client = new RestClient("http://localhost:4000");
+            //Arrange
+            RestRequest request = new RestRequest("/Employee/40", Method.Delete);
+            //Act
+            RestResponse response = client.Execute(request);
+            //Assert
+            Assert.AreEqual(response.StatusCode, HttpStatusCode.OK);
+            Console.WriteLine(response.Content);
+        }
     }
+
+
 }
 
 
