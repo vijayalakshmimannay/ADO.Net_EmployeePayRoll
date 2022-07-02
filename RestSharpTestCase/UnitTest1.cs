@@ -27,7 +27,7 @@ namespace RestSharpTestCase
             //Assert
             Assert.AreEqual(response.StatusCode, HttpStatusCode.OK);
             List<Employee> list = JsonConvert.DeserializeObject<List<Employee>>(response.Content);
-            Assert.AreEqual(5, list.Count);
+            Assert.AreEqual(40, list.Count);
             foreach (Employee value in list)
             {
                 Console.WriteLine("Id:" + value.ID + ",\t " + value.NAME + ",\t " + value.SALARY);
@@ -49,6 +49,29 @@ namespace RestSharpTestCase
             Assert.AreEqual("Sita", value.NAME);
             Assert.AreEqual("30000", value.SALARY);
             Console.WriteLine(response.Content);
+        }
+        [TestMethod]
+        public void OnPostingMultipleEmployees_AddToJsonServer_ReturnListOfAddedData()
+        {
+            client = new RestClient("http://localhost:4000");
+            //Arrange
+            List<Employee> list = new List<Employee>();
+            list.Add(new Employee { NAME = "Ramesh", SALARY = "25000" });
+            list.Add(new Employee { NAME = "Jyothi", SALARY = "35000" });
+            list.Add(new Employee { NAME = "Karuna", SALARY = "45000" });
+            list.ForEach(body =>
+            {
+                RestRequest request = new RestRequest("/Employee", Method.Post);
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
+                //Act
+                RestResponse response = client.Execute(request);
+                //Assert
+                Assert.AreEqual(response.StatusCode, HttpStatusCode.Created);
+                Employee value = JsonConvert.DeserializeObject<Employee>(response.Content);
+                Assert.AreEqual(body.NAME, value.NAME);
+                Assert.AreEqual(body.SALARY, value.SALARY);
+                Console.WriteLine(response.Content);
+            });
         }
     }
 }

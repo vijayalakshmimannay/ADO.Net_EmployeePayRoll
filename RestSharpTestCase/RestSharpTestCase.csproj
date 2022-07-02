@@ -16,4 +16,8 @@
     <PackageReference Include="RestSharp" Version="108.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ADO_EmployeePayRoll\ADO_EmployeePayRoll.csproj" />
+  </ItemGroup>
+
 </Project>
